@@ -1,24 +1,13 @@
-"""
-
-
-"""
-
-
-
 import math
 
-
-# Add any extra import statements you may need here
-
-
-# Add any helper functions you may need here
-
-
 def getBillionUsersDay(growthRates):
-
-
-# Write your code here
-
+    out = 1
+    pop = growthRates.copy()
+    while sum(pop) < 1000000000:
+        for i in range(len(pop)):
+            pop[i] *= growthRates[i]
+        out += 1
+    return out
 
 # These are the tests we use to determine if the solution is correct.
 # You can add your own at the bottom, but they are otherwise not editable!
@@ -59,4 +48,8 @@ if __name__ == "__main__":
     output_2 = getBillionUsersDay(test_2)
     check(expected_2, output_2)
 
-    # Add your own test cases here
+    test_3 = [1.5]
+    expected_3 = 52
+    output_3 = getBillionUsersDay(test_3)
+    check(expected_3, output_3)
+
